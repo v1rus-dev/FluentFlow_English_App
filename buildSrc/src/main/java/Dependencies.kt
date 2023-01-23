@@ -31,7 +31,7 @@ object Versions {
     const val junitAndroidVersion: String = "1.1.5"
     const val espressoAndroidVersion: String = "3.5.1"
 
-    const val hiltVersion = "2.43.1"
+    const val hiltVersion = "2.44.2"
     const val daggerVersion = "2.44"
 
     const val roomVersion = "2.5.0"

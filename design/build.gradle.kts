@@ -69,3 +69,7 @@ dependencies {
     implementation(Dependencies.Compose.activityCompose)
     implementation(Dependencies.Compose.viewModel)
 }
+
+kapt {
+    correctErrorTypes = true
+}
