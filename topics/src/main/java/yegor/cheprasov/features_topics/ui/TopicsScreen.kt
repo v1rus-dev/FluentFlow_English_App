@@ -8,16 +8,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import yegor.cheprasov.feature_design.components.MainToolbar
+import yegor.cheprasov.feature_design.tools.background
 import yegor.cheprasov.features_topics.fakedata.getFake
 import yegor.cheprasov.features_topics.state.TopicsState
 
 @Composable
 fun TopicsScreen(state: TopicsState, onClick: (Int) -> Unit) {
-    Scaffold(topBar = {
-        MainToolbar(title = "Темы")
-    }) { paddingValues ->
-        Column(modifier = Modifier.fillMaxSize().padding(top = 30.dp)) {
-            LazyColumn(modifier = Modifier.padding(paddingValues), contentPadding = PaddingValues(horizontal = 16.dp)) {
+    Scaffold(
+        backgroundColor = background,
+        topBar = {
+            MainToolbar(title = "Темы")
+        }) { paddingValues ->
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 30.dp)) {
+            LazyColumn(
+                modifier = Modifier.padding(paddingValues),
+                contentPadding = PaddingValues(horizontal = 16.dp)
+            ) {
                 items(state.topics.size, key = {
                     state.topics[it].id
                 }) { index ->

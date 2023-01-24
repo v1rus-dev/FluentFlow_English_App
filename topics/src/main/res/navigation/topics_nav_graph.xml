@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/topics_nav_graph"
+    app:startDestination="@id/topicsFragment">
+
+    <fragment
+        android:id="@+id/topicsFragment"
+        android:name="yegor.cheprasov.features_topics.TopicsFragment"
+        android:label="TopicsFragment" />
+</navigation>

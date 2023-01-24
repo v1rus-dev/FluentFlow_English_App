@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/topics_item"
+        android:title="Темы"/>
+    <item
+        android:id="@+id/words_item"
+        android:title="Слова"/>
+    <item
+        android:id="@+id/profile_item"
+        android:title="Профиль"/>
+</menu>
