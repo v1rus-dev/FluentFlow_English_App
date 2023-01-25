@@ -6,10 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AssignmentInd
 import androidx.compose.material.icons.filled.Comment
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,7 +18,7 @@ fun AppBottomNavigation(onClick: (BottomNavItem) -> Unit) {
         BottomNavItem.Words,
         BottomNavItem.Profile
     )
-    val selectedItem by remember { mutableStateOf(items.first()) }
+    var selectedItem by remember { mutableStateOf(items.first()) }
     Column {
         Divider()
         BottomNavigation(
@@ -38,6 +35,7 @@ fun AppBottomNavigation(onClick: (BottomNavItem) -> Unit) {
                     onClick = {
                         if (item != selectedItem) {
                             onClick(item)
+                            selectedItem = item
                         }
                     })
             }

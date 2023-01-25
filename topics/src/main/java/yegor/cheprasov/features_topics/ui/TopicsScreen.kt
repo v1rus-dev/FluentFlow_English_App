@@ -2,6 +2,7 @@ package yegor.cheprasov.features_topics.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -14,6 +15,7 @@ import yegor.cheprasov.features_topics.state.TopicsState
 
 @Composable
 fun TopicsScreen(state: TopicsState, onClick: (Int) -> Unit) {
+    val listState = rememberLazyListState()
     Scaffold(
         backgroundColor = background,
         topBar = {
@@ -21,10 +23,11 @@ fun TopicsScreen(state: TopicsState, onClick: (Int) -> Unit) {
         }) { paddingValues ->
         Column(modifier = Modifier
             .fillMaxSize()
-            .padding(top = 30.dp)) {
+            .padding(top = 15.dp)) {
             LazyColumn(
                 modifier = Modifier.padding(paddingValues),
-                contentPadding = PaddingValues(horizontal = 16.dp)
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                state = listState
             ) {
                 items(state.topics.size, key = {
                     state.topics[it].id

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/words_nav_graph"
+    app:startDestination="@id/wordsFragment">
+
+    <fragment
+        android:id="@+id/wordsFragment"
+        android:name="yegor.cheprasov.feature_words.WordsFragment"
+        android:label="WordsFragment" />
+</navigation>

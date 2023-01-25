@@ -64,6 +64,7 @@ object Dependencies {
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}"
     const val androidTestNavigation = "androidx.navigation:navigation-testing:${Versions.navVersion}"
+    const val dinamicFeatureNavigation = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navVersion}"
     const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.navVersion}"
 
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBomVersion}"
