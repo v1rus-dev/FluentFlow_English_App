@@ -91,4 +91,15 @@ object Dependencies {
         const val activityCompose = "androidx.activity:activity-compose:${Versions.activityComposeVersion}"
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModelVersion}"
     }
+
+    object Voyager {
+        private const val voyagerVersion = "1.0.0-rc03"
+
+        const val navigator = "cafe.adriel.voyager:voyager-navigator:${voyagerVersion}"
+        const val bottomSheetNavigator = "cafe.adriel.voyager:voyager-bottom-sheet-navigator:${voyagerVersion}"
+        const val tabNavigator = "cafe.adriel.voyager:voyager-tab-navigator:${voyagerVersion}"
+        const val transitions = "cafe.adriel.voyager:voyager-transitions:${voyagerVersion}"
+        const val viewModelIntegration = "cafe.adriel.voyager:voyager-androidx:${voyagerVersion}"
+        const val hilt = "cafe.adriel.voyager:voyager-hilt:${voyagerVersion}"
+    }
 }
