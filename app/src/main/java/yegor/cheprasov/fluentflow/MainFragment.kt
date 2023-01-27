@@ -10,7 +10,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import yegor.cheprasov.feature_design.components.AppBottomNavigation
 import yegor.cheprasov.feature_design.components.BottomNavItem
 import yegor.cheprasov.fluentflow.databinding.FragmentMainBinding

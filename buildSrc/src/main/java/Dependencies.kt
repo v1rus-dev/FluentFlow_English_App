@@ -4,6 +4,7 @@ object AppDependencies {
     const val hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltVersion}"
     const val kotlinSerializationPlugin = "org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlinVersion}"
     const val googleServices = "com.google.gms:google-services:${Versions.googleServicesVersion}"
+    const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.sageArgsPluginsVersion}"
 }
 
 object Plugins {
@@ -12,6 +13,7 @@ object Plugins {
     const val kotlinAndroid = "kotlin-android"
     const val kotlinKapt = "kotlin-kapt"
     const val kotlinParcelize = "kotlin-parcelize"
+    const val safeArgs = "androidx.navigation.safeargs.kotlin"
     const val dagger = "dagger.hilt.android.plugin"
     const val detekt = "io.gitlab.arturbosch.detekt"
     const val gmsServices = "com.google.gms.google-services"
@@ -21,6 +23,9 @@ object Versions {
 
     const val androidGradlePluginVersion = "7.2.2"
     const val googleServicesVersion = "4.3.15"
+    const val sageArgsPluginsVersion = "2.5.3"
+
+    const val viewModelVersion = "2.5.1"
 
     const val kotlinVersion = "1.8.0"
     const val androidCoreVersion = "1.9.0"
@@ -48,6 +53,7 @@ object Dependencies {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompatVersion}"
     const val material = "com.google.android.material:material:${Versions.materialVersion}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelVersion}"
 
     const val junit = "junit:junit:${Versions.junitVersion}"
     const val junitAndroid = "androidx.test.ext:junit:${Versions.junitAndroidVersion}"

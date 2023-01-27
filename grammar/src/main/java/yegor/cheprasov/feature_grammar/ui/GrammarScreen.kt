@@ -8,14 +8,15 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import yegor.cheprasov.feature_design.components.SecondToolbar
 
 @Composable
 fun GrammarScreen(
+    navController: NavController,
     modifier: Modifier = Modifier,
 ) {
-    val navController = rememberNavController()
     Scaffold(
         topBar = {
             SecondToolbar("Грамматика") {
@@ -38,5 +39,5 @@ fun GrammarScreen(
 @Preview(name = "GrammarScreen")
 @Composable
 private fun PreviewGrammarScreen() {
-    GrammarScreen()
+    GrammarScreen(rememberNavController())
 }

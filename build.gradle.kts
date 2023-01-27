@@ -12,6 +12,7 @@ buildscript {
         classpath(AppDependencies.hiltAndroidGradlePlugin)
         classpath(AppDependencies.kotlinSerializationPlugin)
         classpath(AppDependencies.googleServices)
+        classpath(AppDependencies.safeArgs)
     }
 }
 

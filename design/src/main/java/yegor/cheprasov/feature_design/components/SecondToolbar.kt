@@ -37,7 +37,7 @@ fun SecondToolbar(
             painter = painterResource(id = R.drawable.ic_back),
             contentDescription = null,
             modifier = Modifier.clickable {
-                onBack
+                onBack()
             })
         Text(
             text = title,

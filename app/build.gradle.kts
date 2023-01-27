@@ -3,6 +3,7 @@ plugins {
     id(Plugins.kotlinAndroid)
     id(Plugins.kotlinKapt)
     id(Plugins.kotlinParcelize)
+    id(Plugins.safeArgs)
     id(Plugins.dagger)
     id(Plugins.gmsServices)
 }

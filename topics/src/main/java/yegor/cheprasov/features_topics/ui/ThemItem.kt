@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import yegor.cheprasov.feature_data.GlobalDestinations
 import yegor.cheprasov.feature_design.components.Percentage
 import yegor.cheprasov.features_topics.R
 
@@ -32,9 +33,9 @@ fun ThemItem(
     percentage: Int,
     @DrawableRes background: Int,
     @DrawableRes image: Int,
-    index: Int,
+    globalDestinations: GlobalDestinations,
     modifier: Modifier = Modifier,
-    onClick: (Int) -> Unit
+    onClick: (GlobalDestinations) -> Unit
 ) {
     Card(
         modifier = modifier
@@ -42,7 +43,7 @@ fun ThemItem(
             .height(126.dp)
             .clip(RoundedCornerShape(15.dp))
             .clickable(role = Role.Button) {
-                onClick(index)
+                onClick(globalDestinations)
             },
         shape = RoundedCornerShape(15.dp),
         border = BorderStroke(1.dp, Color.LightGray),
@@ -109,6 +110,6 @@ private fun PreviewThemItem() {
         percentage = 75,
         background = R.drawable.first_them_bg,
         image = R.drawable.grammar_img,
-        index = 0
+        globalDestinations = GlobalDestinations.Grammar
     ) {}
 }

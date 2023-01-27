@@ -35,6 +35,8 @@ android {
 
 dependencies {
     implementation(Dependencies.coreCtx)
+    implementation(Dependencies.appCompat)
+    implementation(Dependencies.viewModel)
 
     implementation(Dependencies.hiltAndroid)
     kapt(Dependencies.hiltCompiler)

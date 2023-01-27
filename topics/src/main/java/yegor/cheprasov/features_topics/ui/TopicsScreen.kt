@@ -8,13 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import yegor.cheprasov.feature_data.GlobalDestinations
 import yegor.cheprasov.feature_design.components.MainToolbar
 import yegor.cheprasov.feature_design.tools.background
 import yegor.cheprasov.features_topics.fakedata.getFake
 import yegor.cheprasov.features_topics.state.TopicsState
 
 @Composable
-fun TopicsScreen(state: TopicsState, onClick: (Int) -> Unit) {
+fun TopicsScreen(state: TopicsState, onClick: (GlobalDestinations) -> Unit) {
     val listState = rememberLazyListState()
     Scaffold(
         backgroundColor = background,
@@ -38,7 +39,7 @@ fun TopicsScreen(state: TopicsState, onClick: (Int) -> Unit) {
                         percentage = state.topics[index].percentages,
                         background = state.topics[index].background,
                         image = state.topics[index].image,
-                        index = state.topics[index].id,
+                        globalDestinations = state.topics[index].destination,
                         onClick = onClick
                     )
                     if (index != state.topics.lastIndex) {

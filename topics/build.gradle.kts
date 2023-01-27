@@ -45,6 +45,7 @@ android {
 
 dependencies {
     implementation(project(":design"))
+    implementation(project(":data"))
 
     implementation(Dependencies.coreCtx)
     implementation(Dependencies.appCompat)

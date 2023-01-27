@@ -4,8 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import yegor.cheprasov.feature_data.GlobalDestinations
 import yegor.cheprasov.feature_design.tools.BaseComposeFragment
-import yegor.cheprasov.feature_design.tools.SharedViewModel
+import yegor.cheprasov.feature_data.SharedViewModel
 import yegor.cheprasov.features_topics.ui.TopicsScreen
 import yegor.cheprasov.features_topics.viewmodel.TopicsViewModel
 
@@ -19,7 +20,7 @@ class TopicsFragment : BaseComposeFragment() {
         get() = {
             val state = topicsViewModel.state.collectAsState()
             TopicsScreen(state.value) {
-
+                sharedViewModel.navigateTo(it)
             }
         }
 
