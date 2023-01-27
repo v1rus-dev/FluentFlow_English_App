@@ -1,54 +1,49 @@
 plugins {
-    id(Plugins.androidApplication)
+    id(Plugins.androidLibrary)
     id(Plugins.kotlinAndroid)
     id(Plugins.kotlinKapt)
     id(Plugins.kotlinParcelize)
     id(Plugins.dagger)
-    id(Plugins.gmsServices)
 }
 
 android {
-    namespace = "yegor.cheprasov.fluentflow"
+    namespace = "yegor.cheprasov.feature_grammar"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "yegor.cheprasov.fluentflow"
         minSdk = 23
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
     buildFeatures {
-        viewBinding = true
         compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.0"
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
     implementation(project(":design"))
-    implementation(project(":data"))
-    implementation(project(":topics"))
-    implementation(project(":words"))
-    implementation(project(":grammar"))
 
     implementation(Dependencies.coreCtx)
     implementation(Dependencies.appCompat)
@@ -63,8 +58,15 @@ dependencies {
     androidTestImplementation(Dependencies.androidTestNavigation)
     implementation(Dependencies.composeNavigation)
 
-    implementation(platform(Dependencies.firebaseBom))
-    implementation(Dependencies.firebaseAnalytics)
+    implementation(platform(Dependencies.Compose.composeBom))
+    androidTestImplementation(platform(Dependencies.Compose.composeBom))
+
+    implementation(Dependencies.Compose.material)
+    implementation(Dependencies.Compose.preview)
+    debugImplementation(Dependencies.Compose.debugPreviewTooling)
+
+    androidTestImplementation(Dependencies.Compose.androidTestJunit)
+    debugImplementation(Dependencies.Compose.debugManifest)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitAndroid)

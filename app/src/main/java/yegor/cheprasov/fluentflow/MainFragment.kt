@@ -37,11 +37,10 @@ class MainFragment : Fragment() {
             AppBottomNavigation(onClick = { bottomNavItem ->
                 when(bottomNavItem) {
                     BottomNavItem.Topics -> {
-                        binding.navHostFragment.findNavController()
-                        binding.navHostFragment.findNavController().navigate(R.id.to_topics_nav_graph)
+                        binding.navHostFragment.findNavController().navigateSafe(R.id.to_topics_nav_graph)
                     }
                     BottomNavItem.Words -> {
-                        binding.navHostFragment.findNavController().navigate(R.id.to_words_nav_graph)
+                        binding.navHostFragment.findNavController().navigateSafe(R.id.to_words_nav_graph)
                     }
                     BottomNavItem.Profile -> {
                     }

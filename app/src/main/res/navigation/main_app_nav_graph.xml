@@ -9,5 +9,13 @@
         android:id="@+id/mainFragment"
         android:name="yegor.cheprasov.fluentflow.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main"/>
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/main_fragment_to_grammarFragment"
+            app:destination="@id/grammar_nav_graph"/>
+
+    </fragment>
+
+    <include app:graph="@navigation/grammar_nav_graph"/>
 </navigation>

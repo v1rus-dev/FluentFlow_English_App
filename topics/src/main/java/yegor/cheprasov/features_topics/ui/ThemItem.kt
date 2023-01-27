@@ -11,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -21,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import yegor.cheprasov.feature_design.components.Percentage
 import yegor.cheprasov.features_topics.R
 
 @Composable
@@ -38,6 +40,7 @@ fun ThemItem(
         modifier = modifier
             .fillMaxWidth()
             .height(126.dp)
+            .clip(RoundedCornerShape(15.dp))
             .clickable(role = Role.Button) {
                 onClick(index)
             },
@@ -75,7 +78,7 @@ fun ThemItem(
                     color = Color.Black,
                     fontWeight = FontWeight.Light
                 )
-                ThemItemPercentage(
+                Percentage(
                     percentage = percentage,
                     modifier = Modifier
                         .width(134.dp)

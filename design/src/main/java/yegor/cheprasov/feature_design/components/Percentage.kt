@@ -1,4 +1,4 @@
-package yegor.cheprasov.features_topics.ui
+package yegor.cheprasov.feature_design.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,7 +16,7 @@ val PERCENTAGE_COLOR_FIRST = Color(0xFF5BD3C7)
 val PERCENTAGE_COLOR_SECOND = Color(0xFFE5E5E5)
 
 @Composable
-fun ThemItemPercentage(
+fun Percentage(
     percentage: Int,
     modifier: Modifier = Modifier
 ) {
@@ -48,6 +48,6 @@ fun ThemItemPercentage(
 
 @Preview(name = "ThemItemPercentage")
 @Composable
-private fun PreviewThemItemPercentage() {
-    ThemItemPercentage(76)
+private fun PreviewPercentage() {
+    Percentage(76)
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/grammar_nav_graph"
+    app:startDestination="@id/grammarFragment">
+
+
+    <fragment
+        android:id="@+id/grammarFragment"
+        android:name="yegor.cheprasov.feature_grammar.GrammarFragment"
+        android:label="GrammarFragment" />
+</navigation>
