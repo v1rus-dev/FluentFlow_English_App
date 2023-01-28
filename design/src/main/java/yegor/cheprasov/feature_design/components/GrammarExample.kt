@@ -1,4 +1,4 @@
-package yegor.cheprasov.feature_grammar.ui
+package yegor.cheprasov.feature_design.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding

@@ -43,6 +43,7 @@ object Versions {
 
     const val activityComposeVersion = "1.5.1"
     const val composeViewModelVersion = "2.5.1"
+    const val accompanistVersion = "0.29.0-alpha"
 
     const val navVersion = "2.5.3"
     const val firebaseBomVersion = "31.2.0"
@@ -90,6 +91,8 @@ object Dependencies {
 
         const val activityCompose = "androidx.activity:activity-compose:${Versions.activityComposeVersion}"
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModelVersion}"
+
+        const val accompanistFlow = "com.google.accompanist:accompanist-flowlayout:${Versions.accompanistVersion}"
     }
 
     object Voyager {

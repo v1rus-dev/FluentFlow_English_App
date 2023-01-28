@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import yegor.cheprasov.feature_design.components.FavoriteButton
+import yegor.cheprasov.feature_design.components.GrammarExample
 import yegor.cheprasov.feature_design.components.Percentage
 import yegor.cheprasov.feature_grammar.state.GrammarElementState
 
