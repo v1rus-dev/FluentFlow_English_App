@@ -93,6 +93,9 @@ object Dependencies {
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModelVersion}"
 
         const val accompanistFlow = "com.google.accompanist:accompanist-flowlayout:${Versions.accompanistVersion}"
+
+        const val accompanistPager = "com.google.accompanist:accompanist-pager:${Versions.accompanistVersion}"
+        const val indicators = "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanistVersion}"
     }
 
     object Voyager {

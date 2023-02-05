@@ -42,7 +42,6 @@ fun ExamplesPart(
     maxExamples: Int = 3,
     onAddExample: (String) -> Unit
 ) {
-    val context = LocalContext.current
     val onShowAddNewElementState: MutableState<ShowAddElementType> = remember {
         mutableStateOf(ShowAddElementType.Close)
     }
@@ -116,8 +115,7 @@ fun GrammarExampleEditable(
                 value = textField.value,
                 cursorBrush = Brush.linearGradient(listOf(Color.White, Color.White)),
                 modifier = Modifier
-                    .focusRequester(requester)
-                    .width(IntrinsicSize.Min),
+                    .focusRequester(requester),
                 maxLines = 1,
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
@@ -125,7 +123,7 @@ fun GrammarExampleEditable(
                 ),
                 keyboardActions = KeyboardActions(
                     onDone = {
-                        onDone(textField.value)
+                        onDone(textField.value.trim())
                     }
                 ),
                 onValueChange = { text ->

@@ -71,6 +71,9 @@ dependencies {
 
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.Compose.preview)
+    implementation(Dependencies.Compose.accompanistPager)
+    implementation(Dependencies.Compose.indicators)
+
     debugImplementation(Dependencies.Compose.debugPreviewTooling)
 
     androidTestImplementation(Dependencies.Compose.androidTestJunit)
