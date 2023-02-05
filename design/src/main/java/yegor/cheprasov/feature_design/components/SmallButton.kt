@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,8 +37,37 @@ fun SmallButton(
     }
 }
 
-@Preview
 @Composable
-private fun PreviewGrammarExample() {
+fun MiddleButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    textStyle: TextStyle = TextStyle.Default,
+    isClickable: Boolean = true,
+    backgroundColor: Color = Color(0xFFBD6EEB),
+    shape: Shape = RoundedCornerShape(8.dp)
+) {
+    Card(
+        shape = shape,
+        backgroundColor = backgroundColor,
+        modifier = modifier.clickable(enabled = isClickable, role = Role.Button) {
+            onClick()
+        }
+    ) {
+        Row(modifier = Modifier.padding(vertical = 6.dp, horizontal = 12.dp)) {
+            Text(text = text, style = textStyle)
+        }
+    }
+}
+
+@Preview(name = "Small button")
+@Composable
+private fun PreviewSmallButton() {
     SmallButton(text = "This is", onClick = {})
+}
+
+@Preview(name = "Middle button")
+@Composable
+private fun PreviewMiddleButton() {
+    MiddleButton(text = "This is", onClick = {})
 }
