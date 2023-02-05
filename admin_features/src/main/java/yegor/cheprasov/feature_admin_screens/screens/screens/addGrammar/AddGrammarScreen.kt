@@ -1,7 +1,6 @@
-package yegor.cheprasov.feature_admin_screens.screens.screens
+package yegor.cheprasov.feature_admin_screens.screens.screens.addGrammar
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
@@ -13,10 +12,10 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.launch
+import yegor.cheprasov.feature_admin_screens.screens.screens.AddGrammarFirstScreen
+import yegor.cheprasov.feature_admin_screens.screens.screens.AddGrammarSecondScreen
 import yegor.cheprasov.feature_admin_screens.screens.viewmodels.GrammarViewModel
 import yegor.cheprasov.feature_admin_screens.screens.viewmodels.MainViewModel
-
-const val MAX_EXAMPLES = 3
 
 object AddGrammarScreen : Screen {
 
