@@ -1,17 +1,17 @@
-package yegor.cheprasov.feature_grammar.ui
+package yegor.cheprasov.feature_grammar.ui.allGrammarsScreen.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import yegor.cheprasov.feature_design.components.GrammarMenuCard
-import yegor.cheprasov.feature_grammar.state.GrammarElementState
+import yegor.cheprasov.feature_grammar.viewEntities.GrammarElementViewEntity
 
 
 @Composable
-fun GrammarElement(grammarElementState: GrammarElementState) {
+fun GrammarElement(grammarElementState: GrammarElementViewEntity) {
     with(grammarElementState) {
         GrammarMenuCard(
             title = title,
-            text = text,
+            subtitle = subtitle,
             examples = examples,
             percentage = percentage,
             isFavorite = isFavorite
@@ -25,11 +25,11 @@ private fun PreviewGrammarElement() {
     GrammarElement(getGrammarElementState())
 }
 
-private fun getGrammarElementState() = GrammarElementState(
-    id = 0,
+private fun getGrammarElementState() = GrammarElementViewEntity(
     title = "Present Simple",
-    text = "Am, is, are",
+    subtitle = "Am, is, are",
     examples = listOf("This is", "It is"),
     percentage = 35,
+    fileName = "",
     isFavorite = false
 )

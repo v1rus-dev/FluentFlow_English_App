@@ -29,7 +29,7 @@ private val titleTextColor = Color(0xFFC5C6C7)
 @Composable
 fun GrammarMenuCard(
     title: String,
-    text: String,
+    subtitle: String,
     examples: List<String>,
     percentage: Int,
     isFavorite: Boolean,
@@ -52,7 +52,7 @@ fun GrammarMenuCard(
         ) {
             Column {
                 Text(
-                    text = text,
+                    text = subtitle,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Normal,
                     color = titleTextColor
@@ -95,7 +95,7 @@ fun GrammarMenuCard(
 private fun PreviewGrammarMenuCard() {
     GrammarMenuCard(
         title = "Am, is, are",
-        text = "Present Simple",
+        subtitle = "Present Simple",
         examples = listOf("This is", "It is"),
         percentage = 35,
         isFavorite = false

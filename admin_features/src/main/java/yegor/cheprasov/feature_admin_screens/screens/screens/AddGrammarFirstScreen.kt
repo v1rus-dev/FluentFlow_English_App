@@ -142,7 +142,7 @@ fun AddGrammarFirstScreen(
             }
             GrammarMenuCard(
                 title = title.ifEmpty { "Title example" },
-                text = textOnCard.ifEmpty { "Description on card example" },
+                subtitle = textOnCard.ifEmpty { "Description on card example" },
                 examples = if (examples.isEmpty()) {
                     listOf("Example", "Ex", "Example")
                 } else {

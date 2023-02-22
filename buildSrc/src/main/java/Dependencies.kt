@@ -37,6 +37,7 @@ object Versions {
     const val espressoAndroidVersion: String = "3.5.1"
 
     const val hiltVersion = "2.44.2"
+    const val hiltNavigationVersion = "1.0.0"
     const val daggerVersion = "2.44"
 
     const val roomVersion = "2.5.0"
@@ -47,6 +48,7 @@ object Versions {
 
     const val navVersion = "2.5.3"
     const val firebaseBomVersion = "31.2.0"
+    const val gsonVersion = "2.10.1"
 }
 
 object Dependencies {
@@ -62,6 +64,7 @@ object Dependencies {
 
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
+    const val hiltNavigation = "androidx.hilt:hilt-navigation-fragment:${Versions.hiltNavigationVersion}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Versions.roomVersion}"
     const val roomKapt = "androidx.room:room-compiler:${Versions.roomVersion}"
@@ -77,6 +80,9 @@ object Dependencies {
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBomVersion}"
     const val firebaseFirestore = "com.google.firebase:firebase-firestore-ktx"
     const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
+    const val firebaseStorage = "com.google.firebase:firebase-storage-ktx"
+
+    const val gson = "com.google.code.gson:gson:${Versions.gsonVersion}"
 
     object Compose {
         const val composeBom = "androidx.compose:compose-bom:2023.01.00"

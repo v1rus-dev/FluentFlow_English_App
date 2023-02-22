@@ -48,6 +48,9 @@ dependencies {
 
     implementation(platform(Dependencies.firebaseBom))
     implementation(Dependencies.firebaseFirestore)
+    implementation(Dependencies.firebaseStorage)
+
+    implementation(Dependencies.gson)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitAndroid)

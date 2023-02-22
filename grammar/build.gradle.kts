@@ -44,6 +44,7 @@ android {
 
 dependencies {
     implementation(project(":design"))
+    implementation(project(":data"))
 
     implementation(Dependencies.coreCtx)
     implementation(Dependencies.appCompat)
@@ -51,6 +52,7 @@ dependencies {
     implementation(Dependencies.constraintLayout)
 
     implementation(Dependencies.hiltAndroid)
+    implementation(Dependencies.hiltNavigation)
     kapt(Dependencies.hiltCompiler)
 
     implementation(Dependencies.navigationFragment)
