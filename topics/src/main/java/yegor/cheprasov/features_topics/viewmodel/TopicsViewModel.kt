@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import yegor.cheprasov.feature_data.GlobalDestinations
+import yegor.cheprasov.feature_design.GlobalDestinations
 import yegor.cheprasov.features_topics.Topic
 import yegor.cheprasov.features_topics.state.TopicsState
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package yegor.cheprasov.feature_data
+package yegor.cheprasov.feature_design
 
 sealed class GlobalDestinations(val id: Int) {
     object Grammar : GlobalDestinations(0)

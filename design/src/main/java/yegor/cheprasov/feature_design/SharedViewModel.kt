@@ -1,4 +1,4 @@
-package yegor.cheprasov.feature_data
+package yegor.cheprasov.feature_design
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

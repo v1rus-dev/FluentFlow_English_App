@@ -1,12 +1,15 @@
 package yegor.cheprasov.feature_grammar.ui.fragments
 
+import android.os.Bundle
+import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.fragment.app.viewModels
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import dagger.hilt.android.AndroidEntryPoint
-import yegor.cheprasov.feature_data.GlobalDestinations
-import yegor.cheprasov.feature_data.SharedViewModel
+import yegor.cheprasov.feature_design.GlobalDestinations
+import yegor.cheprasov.feature_design.SharedViewModel
 import yegor.cheprasov.feature_design.tools.BaseComposeFragment
 import yegor.cheprasov.feature_grammar.R
 import yegor.cheprasov.feature_grammar.ui.allGrammarsScreen.AllGrammarsScreen
@@ -37,4 +40,13 @@ class GrammarFragment : BaseComposeFragment() {
                 onBack = onBack
             )
         }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                sharedViewModel.navigateTo(GlobalDestinations.None)
+            }
+        })
+    }
 }
