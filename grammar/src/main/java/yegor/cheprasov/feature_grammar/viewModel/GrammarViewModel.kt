@@ -11,12 +11,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import yegor.cheprasov.feature_data.usecases.GrammarUseCase
 import yegor.cheprasov.feature_grammar.mappers.GrammarMapper
 import yegor.cheprasov.feature_grammar.state.GrammarUiState
 import yegor.cheprasov.feature_grammar.state.GrammarUiStateDetail
+import yegor.cheprasov.feature_grammar.viewEntities.GrammarElementViewEntity
 import javax.inject.Inject
 
 @HiltViewModel
@@ -29,6 +29,8 @@ class GrammarViewModel @Inject constructor(
         throwable.printStackTrace()
     }
 
+    private var selectedGrammar: GrammarElementViewEntity? = null
+
     private val ioScope = CoroutineScope(viewModelScope.coroutineContext + Dispatchers.IO + exceptionHandler)
 
     private val mutableUiState = MutableStateFlow<GrammarUiState>(GrammarUiState.Loading)
@@ -40,15 +42,25 @@ class GrammarViewModel @Inject constructor(
     fun load() = ioScope.launch {
         grammarUseCase.loadGrammars()
             .map(grammarMapper::mapListToGrammarElementViewEntity)
-            .map { GrammarUiState.Success(it) }
+            .map(GrammarUiState::Success)
             .collectLatest(mutableUiState::emit)
     }
 
-    fun loadGrammarFile(fileName: String) = ioScope.launch {
+    fun loadGrammarFile(grammar: GrammarElementViewEntity) = ioScope.launch {
+        selectedGrammar = grammar
         mutableUiStateDetail.emit(GrammarUiStateDetail.Loading)
-        grammarUseCase.loadGrammarFile(fileName)
+        grammarUseCase.loadGrammarFile(grammar.fileName)
             .map(grammarMapper::mapGrammarDetail)
             .collectLatest(mutableUiStateDetail::emit)
+    }
+
+    fun loadExercises() = ioScope.launch {
+        if (selectedGrammar == null) return@launch
+
+        grammarUseCase.loadExercise(selectedGrammar!!.exerciseFile)
+            .collectLatest {
+                Log.d("myTag", "exercise: ${it}")
+            }
     }
 
 }

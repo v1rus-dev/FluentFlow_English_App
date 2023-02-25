@@ -31,5 +31,6 @@ private fun getGrammarElementState() = GrammarElementViewEntity(
     examples = listOf("This is", "It is"),
     percentage = 35,
     fileName = "",
+    exerciseFile = "",
     isFavorite = false
 )

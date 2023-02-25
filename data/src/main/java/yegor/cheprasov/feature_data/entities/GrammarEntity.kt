@@ -4,5 +4,6 @@ data class GrammarEntity(
     val title: String = "",
     val subtitle: String = "",
     val fileName: String = "",
+    val exerciseFile: String = "",
     val examples: List<String> = listOf()
 )

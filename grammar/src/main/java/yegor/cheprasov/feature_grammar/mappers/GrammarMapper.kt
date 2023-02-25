@@ -20,6 +20,7 @@ class GrammarMapper @Inject constructor() {
             subtitle = grammarEntity.subtitle,
             examples = grammarEntity.examples,
             fileName = grammarEntity.fileName,
+            exerciseFile = grammarEntity.exerciseFile,
             percentage = Random.nextInt(0, 100),
             isFavorite = false
         )

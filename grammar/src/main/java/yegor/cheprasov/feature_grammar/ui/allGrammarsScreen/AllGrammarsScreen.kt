@@ -28,7 +28,7 @@ fun AllGrammarsScreen(
     val state = grammarViewModel.uiState.collectAsState()
     GrammarScr(
         state = state.value, openDetailGrammar = {
-            grammarViewModel.loadGrammarFile(it.fileName)
+            grammarViewModel.loadGrammarFile(it)
             openDetailFragment(it.title)
         }, onBack = onBack
     )

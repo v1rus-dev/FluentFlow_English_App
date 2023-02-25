@@ -5,6 +5,7 @@ data class GrammarElementViewEntity(
     val subtitle: String,
     val examples: List<String>,
     val fileName: String,
+    val exerciseFile: String,
     val percentage: Int,
     val isFavorite: Boolean
 )

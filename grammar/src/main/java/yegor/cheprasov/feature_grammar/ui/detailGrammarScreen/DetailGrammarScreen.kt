@@ -1,6 +1,5 @@
 package yegor.cheprasov.feature_grammar.ui.detailGrammarScreen
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -11,16 +10,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import yegor.cheprasov.feature_design.components.LoadingScreen
 import yegor.cheprasov.feature_design.components.SecondToolbar
 import yegor.cheprasov.feature_grammar.state.GrammarUiStateDetail
@@ -38,9 +36,13 @@ fun DetailGrammarScreen(
     onBack: () -> Unit
 ) {
     val state: State<GrammarUiStateDetail> = grammarViewModel.detailUiState.collectAsState()
+    val onPractice: () -> Unit = remember { {
+        grammarViewModel.loadExercises()
+    }}
     DetailGrammarSc(
         title = title,
         state = state.value,
+        onPractice = onPractice,
         onBack = onBack
     )
 }
@@ -49,6 +51,7 @@ fun DetailGrammarScreen(
 private fun DetailGrammarSc(
     title: String,
     state: GrammarUiStateDetail,
+    onPractice: () -> Unit,
     onBack: () -> Unit
 ) {
     Scaffold(
@@ -69,7 +72,7 @@ private fun DetailGrammarSc(
                 }
 
                 is GrammarUiStateDetail.Success -> {
-                    SuccessScreen(state.list)
+                    SuccessScreen(state.list, onPractice)
                 }
             }
         }
@@ -77,11 +80,11 @@ private fun DetailGrammarSc(
 }
 
 @Composable
-private fun SuccessScreen(list: List<GrammarDetailType>) {
+private fun SuccessScreen(list: List<GrammarDetailType>, onPractice: () -> Unit) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
         SuccessLazyColumnPart(list = list)
         PracticeBtn(modifier = Modifier.padding(16.dp)) {
-
+            onPractice.invoke()
         }
     }
 }
@@ -121,6 +124,7 @@ private fun PreviewDetailGrammarScreenLoading() {
     DetailGrammarSc(
         title = "Am, is, are",
         state = GrammarUiStateDetail.Loading,
+        onPractice = {},
         onBack = {}
     )
 }
@@ -160,6 +164,7 @@ private fun PreviewDetailGrammarScreenSuccess() {
                 )
             )
         ),
+        onPractice = {},
         onBack = {}
     )
 }
