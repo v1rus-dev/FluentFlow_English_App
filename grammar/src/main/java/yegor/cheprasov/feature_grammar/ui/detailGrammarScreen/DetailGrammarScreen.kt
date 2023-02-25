@@ -37,7 +37,7 @@ fun DetailGrammarScreen(
 ) {
     val state: State<GrammarUiStateDetail> = grammarViewModel.detailUiState.collectAsState()
     val onPractice: () -> Unit = remember { {
-        grammarViewModel.loadExercises()
+
     }}
     DetailGrammarSc(
         title = title,

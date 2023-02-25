@@ -21,5 +21,14 @@
 
     </fragment>
 
+    <action
+        android:id="@+id/navigate_to_mainFragment"
+        app:destination="@id/mainFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/app_nav_graph"
+        app:popUpToInclusive="true"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/fade_out"/>
+
     <include app:graph="@navigation/grammar_nav_graph"/>
 </navigation>

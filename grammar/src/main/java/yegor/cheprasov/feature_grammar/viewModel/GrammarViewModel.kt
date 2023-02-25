@@ -29,9 +29,9 @@ class GrammarViewModel @Inject constructor(
         throwable.printStackTrace()
     }
 
-    private var selectedGrammar: GrammarElementViewEntity? = null
-
     private val ioScope = CoroutineScope(viewModelScope.coroutineContext + Dispatchers.IO + exceptionHandler)
+
+    private var selectedGrammar: GrammarElementViewEntity? = null
 
     private val mutableUiState = MutableStateFlow<GrammarUiState>(GrammarUiState.Loading)
     val uiState: StateFlow<GrammarUiState> = mutableUiState
@@ -53,14 +53,4 @@ class GrammarViewModel @Inject constructor(
             .map(grammarMapper::mapGrammarDetail)
             .collectLatest(mutableUiStateDetail::emit)
     }
-
-    fun loadExercises() = ioScope.launch {
-        if (selectedGrammar == null) return@launch
-
-        grammarUseCase.loadExercise(selectedGrammar!!.exerciseFile)
-            .collectLatest {
-                Log.d("myTag", "exercise: ${it}")
-            }
-    }
-
 }

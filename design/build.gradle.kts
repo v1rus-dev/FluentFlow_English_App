@@ -58,6 +58,8 @@ dependencies {
     implementation(platform(Dependencies.Compose.composeBom))
     androidTestImplementation(platform(Dependencies.Compose.composeBom))
 
+    implementation(Dependencies.navigationFragment)
+
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.Compose.preview)
     debugImplementation(Dependencies.Compose.debugPreviewTooling)

@@ -34,13 +34,15 @@ class MainActivity : AppCompatActivity() {
                     GlobalDestinations.Grammar -> {
                         findNavController(R.id.main_nav_host_fragment).navigate(MainFragmentDirections.mainFragmentToGrammarFragment())
                     }
-                    GlobalDestinations.Exercise -> {
+                    GlobalDestinations.Game -> {
                         Toast.makeText(this@MainActivity, "Navigate to exercise", Toast.LENGTH_SHORT).show()
                     }
                     GlobalDestinations.Words -> {
                         Toast.makeText(this@MainActivity, "Navigate to exercise", Toast.LENGTH_SHORT).show()
                     }
-                    GlobalDestinations.None -> Unit
+                    GlobalDestinations.None -> {
+                        findNavController(R.id.main_nav_host_fragment).navigate(MainFragmentDirections.navigateToMainFragment())
+                    }
                 }
             }
         }
