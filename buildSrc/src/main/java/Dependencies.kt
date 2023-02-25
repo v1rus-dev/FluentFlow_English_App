@@ -27,7 +27,7 @@ object Versions {
 
     const val viewModelVersion = "2.5.1"
 
-    const val kotlinVersion = "1.8.0"
+    const val kotlinVersion = "1.8.10"
     const val androidCoreVersion = "1.9.0"
     const val appCompatVersion = "1.6.0"
     const val materialVersion: String = "1.7.0"

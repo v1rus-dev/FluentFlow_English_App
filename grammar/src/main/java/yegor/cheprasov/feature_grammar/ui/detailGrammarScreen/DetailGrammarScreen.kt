@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import yegor.cheprasov.feature_design.components.SecondToolbar
+import yegor.cheprasov.feature_grammar.state.GrammarUiStateDetail
 import yegor.cheprasov.feature_grammar.viewModel.GrammarViewModel
 
 @Composable
@@ -17,7 +19,7 @@ fun DetailGrammarScreen(
     grammarViewModel: GrammarViewModel,
     onBack: () -> Unit
 ) {
-    val state = grammarViewModel.detailUiState.collectAsState()
+    val state: State<GrammarUiStateDetail> = grammarViewModel.detailUiState.collectAsState()
     DetailGrammarSc(
         title = title,
         onBack = onBack
