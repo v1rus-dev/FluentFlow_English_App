@@ -21,5 +21,24 @@
     <fragment
         android:id="@+id/detailGrammarFragment"
         android:name="yegor.cheprasov.feature_grammar.ui.fragments.GrammarDetailFragment"
-        android:label="DetailGrammarFragment"/>
+        android:label="DetailGrammarFragment">
+
+        <action
+            android:id="@+id/to_exercise_grammar_fragment"
+            app:destination="@id/exerciseGrammarFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/exerciseGrammarFragment"
+        android:name="yegor.cheprasov.feature_grammar.ui.fragments.GrammarExerciseFragment"
+        android:label="ExerciseGrammarFragment">
+        <argument
+            android:name="grammarElement"
+            app:argType="yegor.cheprasov.feature_grammar.viewEntities.GrammarElementViewEntity"/>
+    </fragment>
 </navigation>

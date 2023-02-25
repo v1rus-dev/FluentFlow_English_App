@@ -53,4 +53,6 @@ class GrammarViewModel @Inject constructor(
             .map(grammarMapper::mapGrammarDetail)
             .collectLatest(mutableUiStateDetail::emit)
     }
+
+    fun getSelectedGrammar(): GrammarElementViewEntity = selectedGrammar ?: throw NullPointerException("Selected grammar must not be null!")
 }

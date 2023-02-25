@@ -26,6 +26,7 @@ import yegor.cheprasov.feature_grammar.ui.detailGrammarScreen.components.Grammar
 import yegor.cheprasov.feature_grammar.ui.detailGrammarScreen.components.GrammarDetailTextComponent
 import yegor.cheprasov.feature_grammar.ui.detailGrammarScreen.components.PracticeBtn
 import yegor.cheprasov.feature_grammar.viewEntities.GrammarDetailType
+import yegor.cheprasov.feature_grammar.viewEntities.GrammarElementViewEntity
 import yegor.cheprasov.feature_grammar.viewEntities.OneBlockVE
 import yegor.cheprasov.feature_grammar.viewModel.GrammarViewModel
 
@@ -33,12 +34,10 @@ import yegor.cheprasov.feature_grammar.viewModel.GrammarViewModel
 fun DetailGrammarScreen(
     title: String,
     grammarViewModel: GrammarViewModel,
+    onPractice: () -> Unit,
     onBack: () -> Unit
 ) {
     val state: State<GrammarUiStateDetail> = grammarViewModel.detailUiState.collectAsState()
-    val onPractice: () -> Unit = remember { {
-
-    }}
     DetailGrammarSc(
         title = title,
         state = state.value,

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import yegor.cheprasov.feature_design.tools.BaseComposeFragment
 import yegor.cheprasov.feature_grammar.R
@@ -32,9 +33,19 @@ class GrammarDetailFragment : BaseComposeFragment() {
                     navController.popBackStack()
                 }
             }
+            val onPractice: () -> Unit = remember {
+                {
+                    findNavController().navigate(
+                        GrammarDetailFragmentDirections.toExerciseGrammarFragment(
+                            viewModel.getSelectedGrammar()
+                        )
+                    )
+                }
+            }
             DetailGrammarScreen(
                 title = requireArguments().getString(TITLE, ""),
                 grammarViewModel = viewModel,
+                onPractice = onPractice,
                 onBack = onBack
             )
         }
