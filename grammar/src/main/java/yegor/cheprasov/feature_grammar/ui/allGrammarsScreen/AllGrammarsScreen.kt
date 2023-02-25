@@ -9,10 +9,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
+import yegor.cheprasov.feature_design.components.LoadingScreen
 import yegor.cheprasov.feature_design.components.SecondToolbar
 import yegor.cheprasov.feature_grammar.state.GrammarUiState
-import yegor.cheprasov.feature_grammar.ui.allGrammarsScreen.components.LoadingStateScreen
 import yegor.cheprasov.feature_grammar.ui.allGrammarsScreen.components.SuccessStateScreen
 import yegor.cheprasov.feature_grammar.viewEntities.GrammarElementViewEntity
 import yegor.cheprasov.feature_grammar.viewModel.GrammarViewModel
@@ -53,7 +52,7 @@ private fun GrammarScr(
                 .padding(it)
         ) {
             when (state) {
-                GrammarUiState.Loading -> LoadingStateScreen()
+                GrammarUiState.Loading -> LoadingScreen()
                 is GrammarUiState.Success -> SuccessStateScreen(
                     state = state,
                     openDetailGrammar = openDetailGrammar

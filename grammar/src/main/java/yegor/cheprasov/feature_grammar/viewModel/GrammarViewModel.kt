@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import yegor.cheprasov.feature_data.usecases.GrammarUseCase
 import yegor.cheprasov.feature_grammar.mappers.GrammarMapper
@@ -23,10 +24,6 @@ class GrammarViewModel @Inject constructor(
     private val grammarUseCase: GrammarUseCase,
     private val grammarMapper: GrammarMapper
 ): ViewModel() {
-
-    init {
-        Log.d("myTag", "initGrammarViewModel")
-    }
 
     private val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         throwable.printStackTrace()
@@ -43,17 +40,15 @@ class GrammarViewModel @Inject constructor(
     fun load() = ioScope.launch {
         grammarUseCase.loadGrammars()
             .map(grammarMapper::mapListToGrammarElementViewEntity)
-            .collectLatest {
-                mutableUiState.emit(GrammarUiState.Success(it))
-            }
+            .map { GrammarUiState.Success(it) }
+            .collectLatest(mutableUiState::emit)
     }
 
     fun loadGrammarFile(fileName: String) = ioScope.launch {
+        mutableUiStateDetail.emit(GrammarUiStateDetail.Loading)
         grammarUseCase.loadGrammarFile(fileName)
             .map(grammarMapper::mapGrammarDetail)
-            .collectLatest {
-                mutableUiStateDetail.emit(it)
-            }
+            .collectLatest(mutableUiStateDetail::emit)
     }
 
 }

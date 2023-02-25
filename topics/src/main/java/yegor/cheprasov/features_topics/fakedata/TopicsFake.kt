@@ -24,8 +24,8 @@ fun getFake(): TopicsState =
                 image = R.drawable.exercise_img
             ),
             Topic(
-                "Лексика",
-                "Учите слова",
+                "Игра",
+                "Как много слов вы знаете?",
                 20,
                 id = 2,
                 background = R.drawable.first_them_bg,

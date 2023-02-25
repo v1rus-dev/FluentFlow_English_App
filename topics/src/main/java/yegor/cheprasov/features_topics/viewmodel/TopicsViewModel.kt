@@ -30,7 +30,7 @@ class TopicsViewModel @Inject constructor() : ViewModel() {
                 ),
                 Topic(
                     title = "Упражнения",
-                    desc = "Делайте упражнения",
+                    desc = "Практикуйте ваш английский",
                     percentages = 46,
                     id = 1,
                     destination = GlobalDestinations.Exercise,
@@ -38,8 +38,8 @@ class TopicsViewModel @Inject constructor() : ViewModel() {
                     image = R.drawable.exercise_img
                 ),
                 Topic(
-                    title = "Лексика",
-                    desc = "Учите слова",
+                    title = "Игра",
+                    desc = "Как много слов вы знаете?",
                     percentages = 20,
                     id = 2,
                     destination = GlobalDestinations.Words,
