@@ -64,8 +64,11 @@ dependencies {
     implementation(platform(Dependencies.Compose.composeBom))
     androidTestImplementation(platform(Dependencies.Compose.composeBom))
 
+    implementation(Dependencies.coil)
+
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.Compose.preview)
+    implementation(Dependencies.Compose.accompanistFlow)
     debugImplementation(Dependencies.Compose.debugPreviewTooling)
 
     androidTestImplementation(Dependencies.Compose.androidTestJunit)

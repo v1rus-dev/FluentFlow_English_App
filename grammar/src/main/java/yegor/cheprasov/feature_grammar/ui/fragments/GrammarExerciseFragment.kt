@@ -2,6 +2,7 @@ package yegor.cheprasov.feature_grammar.ui.fragments
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import yegor.cheprasov.feature_design.tools.BaseComposeFragment
@@ -28,7 +29,28 @@ class GrammarExerciseFragment : BaseComposeFragment() {
             LaunchedEffect(key1 = Unit) {
                 viewModel.loadExercises(elementViewEntity)
             }
+
+            val finish = viewModel.finish.collectAsState()
+
+            LaunchedEffect(key1 = finish) {
+                if (finish.value) {
+                    navController.popBackStack()
+                }
+            }
+
+            val state = viewModel.uiState.collectAsState()
             ExerciseScreen(
+                state = state.value,
+                onCheck = {
+                    viewModel.checkAnswer(it)
+                },
+                onContinue = { isLast ->
+                    if (isLast) {
+                        navController.popBackStack()
+                    } else {
+                        viewModel.continueExercise()
+                    }
+                },
                 onBack = {
                     navController.popBackStack()
                 }

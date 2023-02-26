@@ -2,9 +2,12 @@ package yegor.cheprasov.feature_grammar.mappers
 
 import yegor.cheprasov.feature_data.entities.GrammarDetailEntity
 import yegor.cheprasov.feature_data.entities.GrammarEntity
+import yegor.cheprasov.feature_data.entities.GrammarExercises
+import yegor.cheprasov.feature_grammar.state.GrammarExerciseUiState
 import yegor.cheprasov.feature_grammar.state.GrammarUiStateDetail
 import yegor.cheprasov.feature_grammar.viewEntities.GrammarDetailType
 import yegor.cheprasov.feature_grammar.viewEntities.GrammarElementViewEntity
+import yegor.cheprasov.feature_grammar.viewEntities.GrammarExerciseViewEntity
 import yegor.cheprasov.feature_grammar.viewEntities.OneBlockVE
 import javax.inject.Inject
 import kotlin.random.Random
@@ -46,5 +49,17 @@ class GrammarMapper @Inject constructor() {
         }
         return GrammarUiStateDetail.Success(list = result)
     }
+
+    fun mapGrammarExercise(grammarExercises: GrammarExercises): List<GrammarExerciseViewEntity> =
+        grammarExercises.list.map {
+            GrammarExerciseViewEntity(
+                translate = it.translate,
+                image = it.imagePath,
+                text = it.text,
+                words = it.words,
+                correctWords = it.correctWords,
+                correctPhrase = it.correctPhrase
+            )
+        }
 
 }

@@ -49,6 +49,7 @@ object Versions {
     const val navVersion = "2.5.3"
     const val firebaseBomVersion = "31.2.0"
     const val gsonVersion = "2.10.1"
+    const val coilVersion = "2.2.2"
 }
 
 object Dependencies {
@@ -83,6 +84,10 @@ object Dependencies {
     const val firebaseStorage = "com.google.firebase:firebase-storage-ktx"
 
     const val gson = "com.google.code.gson:gson:${Versions.gsonVersion}"
+
+    const val coil = "io.coil-kt:coil-compose:${Versions.coilVersion}"
+    const val coilBase = "io.coil-kt:coil-compose-base:${Versions.coilVersion}"
+    const val coilAndrBase = "io.coil-kt:coil:${Versions.coilVersion}"
 
     object Compose {
         const val composeBom = "androidx.compose:compose-bom:2023.01.00"
