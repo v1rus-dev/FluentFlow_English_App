@@ -1,12 +1,20 @@
 package yegor.cheprasov.feature_design.components
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.*
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.Divider
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AssignmentInd
-import androidx.compose.material.icons.filled.Comment
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.runtime.*
+import androidx.compose.material.icons.outlined.AssignmentInd
+import androidx.compose.material.icons.outlined.Comment
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
@@ -50,7 +58,7 @@ private fun PreviewBottomNavigation() {
 }
 
 sealed class BottomNavItem(val label: String, val icon: ImageVector) {
-    object Topics : BottomNavItem("Темы", Icons.Filled.AssignmentInd)
-    object Words : BottomNavItem("Слова", Icons.Filled.Comment)
-    object Profile : BottomNavItem("Профиль", Icons.Filled.Person)
+    object Topics : BottomNavItem("Темы", Icons.Outlined.AssignmentInd)
+    object Words : BottomNavItem("Слова", Icons.Outlined.Comment)
+    object Profile : BottomNavItem("Профиль", Icons.Outlined.Person)
 }

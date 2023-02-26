@@ -1,7 +1,7 @@
 package yegor.cheprasov.features_topics
 
 import androidx.annotation.DrawableRes
-import yegor.cheprasov.feature_data.GlobalDestinations
+import yegor.cheprasov.feature_design.GlobalDestinations
 
 data class Topic(
     val title: String,

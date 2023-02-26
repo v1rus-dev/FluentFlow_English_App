@@ -27,7 +27,7 @@ object Versions {
 
     const val viewModelVersion = "2.5.1"
 
-    const val kotlinVersion = "1.8.0"
+    const val kotlinVersion = "1.8.10"
     const val androidCoreVersion = "1.9.0"
     const val appCompatVersion = "1.6.0"
     const val materialVersion: String = "1.7.0"
@@ -37,15 +37,19 @@ object Versions {
     const val espressoAndroidVersion: String = "3.5.1"
 
     const val hiltVersion = "2.44.2"
+    const val hiltNavigationVersion = "1.0.0"
     const val daggerVersion = "2.44"
 
     const val roomVersion = "2.5.0"
 
     const val activityComposeVersion = "1.5.1"
     const val composeViewModelVersion = "2.5.1"
+    const val accompanistVersion = "0.29.0-alpha"
 
     const val navVersion = "2.5.3"
     const val firebaseBomVersion = "31.2.0"
+    const val gsonVersion = "2.10.1"
+    const val coilVersion = "2.2.2"
 }
 
 object Dependencies {
@@ -61,6 +65,7 @@ object Dependencies {
 
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
+    const val hiltNavigation = "androidx.hilt:hilt-navigation-fragment:${Versions.hiltNavigationVersion}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Versions.roomVersion}"
     const val roomKapt = "androidx.room:room-compiler:${Versions.roomVersion}"
@@ -76,6 +81,13 @@ object Dependencies {
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBomVersion}"
     const val firebaseFirestore = "com.google.firebase:firebase-firestore-ktx"
     const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
+    const val firebaseStorage = "com.google.firebase:firebase-storage-ktx"
+
+    const val gson = "com.google.code.gson:gson:${Versions.gsonVersion}"
+
+    const val coil = "io.coil-kt:coil-compose:${Versions.coilVersion}"
+    const val coilBase = "io.coil-kt:coil-compose-base:${Versions.coilVersion}"
+    const val coilAndrBase = "io.coil-kt:coil:${Versions.coilVersion}"
 
     object Compose {
         const val composeBom = "androidx.compose:compose-bom:2023.01.00"
@@ -90,5 +102,21 @@ object Dependencies {
 
         const val activityCompose = "androidx.activity:activity-compose:${Versions.activityComposeVersion}"
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModelVersion}"
+
+        const val accompanistFlow = "com.google.accompanist:accompanist-flowlayout:${Versions.accompanistVersion}"
+
+        const val accompanistPager = "com.google.accompanist:accompanist-pager:${Versions.accompanistVersion}"
+        const val indicators = "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanistVersion}"
+    }
+
+    object Voyager {
+        private const val voyagerVersion = "1.0.0-rc03"
+
+        const val navigator = "cafe.adriel.voyager:voyager-navigator:${voyagerVersion}"
+        const val bottomSheetNavigator = "cafe.adriel.voyager:voyager-bottom-sheet-navigator:${voyagerVersion}"
+        const val tabNavigator = "cafe.adriel.voyager:voyager-tab-navigator:${voyagerVersion}"
+        const val transitions = "cafe.adriel.voyager:voyager-transitions:${voyagerVersion}"
+        const val viewModelIntegration = "cafe.adriel.voyager:voyager-androidx:${voyagerVersion}"
+        const val hilt = "cafe.adriel.voyager:voyager-hilt:${voyagerVersion}"
     }
 }

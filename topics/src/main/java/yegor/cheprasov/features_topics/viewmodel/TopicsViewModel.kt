@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import yegor.cheprasov.feature_data.GlobalDestinations
+import yegor.cheprasov.feature_design.GlobalDestinations
 import yegor.cheprasov.features_topics.Topic
 import yegor.cheprasov.features_topics.state.TopicsState
 import javax.inject.Inject
@@ -30,16 +30,16 @@ class TopicsViewModel @Inject constructor() : ViewModel() {
                 ),
                 Topic(
                     title = "Упражнения",
-                    desc = "Делайте упражнения",
+                    desc = "Практикуйте ваш английский",
                     percentages = 46,
                     id = 1,
-                    destination = GlobalDestinations.Exercise,
+                    destination = GlobalDestinations.Game,
                     background = R.drawable.first_them_bg,
                     image = R.drawable.exercise_img
                 ),
                 Topic(
-                    title = "Лексика",
-                    desc = "Учите слова",
+                    title = "Игра",
+                    desc = "Как много слов вы знаете?",
                     percentages = 20,
                     id = 2,
                     destination = GlobalDestinations.Words,

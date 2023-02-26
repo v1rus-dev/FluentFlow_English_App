@@ -8,16 +8,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import yegor.cheprasov.feature_data.GlobalDestinations
-import yegor.cheprasov.feature_data.SharedViewModel
-import yegor.cheprasov.fluentflow.databinding.ActivityMainBinding
+import yegor.cheprasov.feature_design.GlobalDestinations
+import yegor.cheprasov.feature_design.SharedViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val binding: ActivityMainBinding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
     private val sharedViewModel: SharedViewModel by viewModels { this.defaultViewModelProviderFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,13 +30,15 @@ class MainActivity : AppCompatActivity() {
                     GlobalDestinations.Grammar -> {
                         findNavController(R.id.main_nav_host_fragment).navigate(MainFragmentDirections.mainFragmentToGrammarFragment())
                     }
-                    GlobalDestinations.Exercise -> {
+                    GlobalDestinations.Game -> {
                         Toast.makeText(this@MainActivity, "Navigate to exercise", Toast.LENGTH_SHORT).show()
                     }
                     GlobalDestinations.Words -> {
                         Toast.makeText(this@MainActivity, "Navigate to exercise", Toast.LENGTH_SHORT).show()
                     }
-                    GlobalDestinations.None -> Unit
+                    GlobalDestinations.None -> {
+                        findNavController(R.id.main_nav_host_fragment).navigate(MainFragmentDirections.navigateToMainFragment())
+                    }
                 }
             }
         }

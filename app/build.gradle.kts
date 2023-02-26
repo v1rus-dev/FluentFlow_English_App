@@ -40,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0"
+        kotlinCompilerExtensionVersion = "1.4.3"
     }
 }
 
@@ -57,6 +57,7 @@ dependencies {
     implementation(Dependencies.constraintLayout)
 
     implementation(Dependencies.hiltAndroid)
+    implementation(Dependencies.hiltNavigation)
     kapt(Dependencies.hiltCompiler)
 
     implementation(Dependencies.navigationFragment)

@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import yegor.cheprasov.feature_data.GlobalDestinations
+import yegor.cheprasov.feature_design.GlobalDestinations
 import yegor.cheprasov.feature_design.components.Percentage
 import yegor.cheprasov.features_topics.R
 

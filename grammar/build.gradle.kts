@@ -3,6 +3,7 @@ plugins {
     id(Plugins.kotlinAndroid)
     id(Plugins.kotlinKapt)
     id(Plugins.kotlinParcelize)
+    id(Plugins.safeArgs)
     id(Plugins.dagger)
 }
 
@@ -35,7 +36,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0"
+        kotlinCompilerExtensionVersion = "1.4.3"
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -44,6 +45,7 @@ android {
 
 dependencies {
     implementation(project(":design"))
+    implementation(project(":data"))
 
     implementation(Dependencies.coreCtx)
     implementation(Dependencies.appCompat)
@@ -51,6 +53,7 @@ dependencies {
     implementation(Dependencies.constraintLayout)
 
     implementation(Dependencies.hiltAndroid)
+    implementation(Dependencies.hiltNavigation)
     kapt(Dependencies.hiltCompiler)
 
     implementation(Dependencies.navigationFragment)
@@ -61,8 +64,11 @@ dependencies {
     implementation(platform(Dependencies.Compose.composeBom))
     androidTestImplementation(platform(Dependencies.Compose.composeBom))
 
+    implementation(Dependencies.coil)
+
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.Compose.preview)
+    implementation(Dependencies.Compose.accompanistFlow)
     debugImplementation(Dependencies.Compose.debugPreviewTooling)
 
     androidTestImplementation(Dependencies.Compose.androidTestJunit)

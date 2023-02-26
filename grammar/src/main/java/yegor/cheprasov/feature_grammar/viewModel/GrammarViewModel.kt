@@ -1,0 +1,58 @@
+package yegor.cheprasov.feature_grammar.viewModel
+
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import yegor.cheprasov.feature_data.usecases.GrammarUseCase
+import yegor.cheprasov.feature_grammar.mappers.GrammarMapper
+import yegor.cheprasov.feature_grammar.state.GrammarUiState
+import yegor.cheprasov.feature_grammar.state.GrammarUiStateDetail
+import yegor.cheprasov.feature_grammar.viewEntities.GrammarElementViewEntity
+import javax.inject.Inject
+
+@HiltViewModel
+class GrammarViewModel @Inject constructor(
+    private val grammarUseCase: GrammarUseCase,
+    private val grammarMapper: GrammarMapper
+): ViewModel() {
+
+    private val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+        throwable.printStackTrace()
+    }
+
+    private val ioScope = CoroutineScope(viewModelScope.coroutineContext + Dispatchers.IO + exceptionHandler)
+
+    private var selectedGrammar: GrammarElementViewEntity? = null
+
+    private val mutableUiState = MutableStateFlow<GrammarUiState>(GrammarUiState.Loading)
+    val uiState: StateFlow<GrammarUiState> = mutableUiState
+
+    private val mutableUiStateDetail = MutableStateFlow<GrammarUiStateDetail>(GrammarUiStateDetail.Loading)
+    val detailUiState: StateFlow<GrammarUiStateDetail> = mutableUiStateDetail
+
+    fun load() = ioScope.launch {
+        grammarUseCase.loadGrammars()
+            .map(grammarMapper::mapListToGrammarElementViewEntity)
+            .map(GrammarUiState::Success)
+            .collectLatest(mutableUiState::emit)
+    }
+
+    fun loadGrammarFile(grammar: GrammarElementViewEntity) = ioScope.launch {
+        selectedGrammar = grammar
+        mutableUiStateDetail.emit(GrammarUiStateDetail.Loading)
+        grammarUseCase.loadGrammarFile(grammar.fileName)
+            .map(grammarMapper::mapGrammarDetail)
+            .collectLatest(mutableUiStateDetail::emit)
+    }
+
+    fun getSelectedGrammar(): GrammarElementViewEntity = selectedGrammar ?: throw NullPointerException("Selected grammar must not be null!")
+}
