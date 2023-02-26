@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
@@ -18,6 +19,8 @@ abstract class BaseComposeFragment : Fragment() {
         findNavController()
     }
 
+    open val onBackPressedCallback: OnBackPressedCallback? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,6 +28,9 @@ abstract class BaseComposeFragment : Fragment() {
     ): View = ComposeView(requireContext()).apply {
         setContent {
             composableFunction()
+        }
+        if (onBackPressedCallback != null) {
+            requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback!!)
         }
     }
 }

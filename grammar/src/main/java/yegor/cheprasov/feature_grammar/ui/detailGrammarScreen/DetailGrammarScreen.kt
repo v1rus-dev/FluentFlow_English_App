@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import yegor.cheprasov.feature_design.components.LoadingScreen
 import yegor.cheprasov.feature_design.components.SecondToolbar
+import yegor.cheprasov.feature_design.tools.background
 import yegor.cheprasov.feature_grammar.state.GrammarUiStateDetail
 import yegor.cheprasov.feature_grammar.ui.detailGrammarScreen.components.GrammarDetailBlockComponent
 import yegor.cheprasov.feature_grammar.ui.detailGrammarScreen.components.GrammarDetailTextComponent
@@ -58,7 +59,7 @@ private fun DetailGrammarSc(
         topBar = {
             SecondToolbar(title, onBack = onBack)
         },
-        backgroundColor = Color(0xFFFAF9F9)
+        backgroundColor = background
     ) {
         Column(
             modifier = Modifier
