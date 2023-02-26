@@ -24,6 +24,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import yegor.cheprasov.feature_design.components.LoadingScreen
 import yegor.cheprasov.feature_design.components.SecondToolbar
+import yegor.cheprasov.feature_design.tools.background
 import yegor.cheprasov.feature_grammar.state.GrammarExerciseUiState
 import yegor.cheprasov.feature_grammar.state.SuccessState
 import yegor.cheprasov.feature_grammar.ui.exerciseScreen.components.AnswersPart
@@ -46,7 +47,7 @@ fun ExerciseScreen(
                 onBack()
             }
         },
-        backgroundColor = Color(0xFFFAF9F9)
+        backgroundColor = background
     ) {
         Column(
             modifier = Modifier

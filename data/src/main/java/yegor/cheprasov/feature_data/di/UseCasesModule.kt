@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import yegor.cheprasov.feature_data.firestore.AppFirebaseStorage
 import yegor.cheprasov.feature_data.firestore.AppFirestore
+import yegor.cheprasov.feature_data.repositories.ExerciseRepository
+import yegor.cheprasov.feature_data.usecases.ExerciseUseCase
 import yegor.cheprasov.feature_data.usecases.GrammarUseCase
 import javax.inject.Singleton
 
@@ -19,5 +21,12 @@ object UseCasesModule {
         appFirestore: AppFirestore,
         appFirebaseStorage: AppFirebaseStorage
     ): GrammarUseCase = GrammarUseCase(appFirestore, appFirebaseStorage)
+
+    @Provides
+    @Singleton
+    fun provideExerciseUseCase(
+        appFirestore: AppFirestore,
+        exerciseRepository: ExerciseRepository
+    ): ExerciseUseCase = ExerciseUseCase(appFirestore, exerciseRepository)
 
 }

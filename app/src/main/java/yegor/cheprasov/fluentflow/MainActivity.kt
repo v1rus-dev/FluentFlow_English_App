@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
                     GlobalDestinations.Game -> {
                         Toast.makeText(this@MainActivity, "Navigate to exercise", Toast.LENGTH_SHORT).show()
                     }
-                    GlobalDestinations.Words -> {
-                        Toast.makeText(this@MainActivity, "Navigate to exercise", Toast.LENGTH_SHORT).show()
+                    GlobalDestinations.Exercises -> {
+                        findNavController(R.id.main_nav_host_fragment).navigate(MainFragmentDirections.mainFragmentToExerciseFragment())
                     }
                     GlobalDestinations.None -> {
                         findNavController(R.id.main_nav_host_fragment).navigate(MainFragmentDirections.navigateToMainFragment())
