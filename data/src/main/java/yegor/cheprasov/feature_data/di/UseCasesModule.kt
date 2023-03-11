@@ -9,6 +9,7 @@ import yegor.cheprasov.feature_data.firestore.AppFirestore
 import yegor.cheprasov.feature_data.repositories.ExerciseRepository
 import yegor.cheprasov.feature_data.usecases.ExerciseUseCase
 import yegor.cheprasov.feature_data.usecases.GrammarUseCase
+import yegor.cheprasov.feature_data.usecases.WordsUseCase
 import javax.inject.Singleton
 
 @Module
@@ -28,5 +29,12 @@ object UseCasesModule {
         appFirestore: AppFirestore,
         exerciseRepository: ExerciseRepository
     ): ExerciseUseCase = ExerciseUseCase(appFirestore, exerciseRepository)
+
+    @Provides
+    @Singleton
+    fun provideWordsUseCase(
+        appFirestore: AppFirestore,
+        firebaseStorage: AppFirebaseStorage
+    ): WordsUseCase = WordsUseCase(appFirestore, firebaseStorage)
 
 }

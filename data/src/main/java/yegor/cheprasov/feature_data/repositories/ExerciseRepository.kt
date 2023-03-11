@@ -12,7 +12,7 @@ class ExerciseRepository @Inject constructor(
 
     suspend fun isIdExists(id: String): Boolean = exerciseDao.isIdExists(id)
 
-    suspend fun removeById(id: String): Boolean = exerciseDao.removeById(id)
+    suspend fun removeById(id: String) = exerciseDao.removeById(id)
 
     suspend fun removeAll() = exerciseDao.removeAll()
 

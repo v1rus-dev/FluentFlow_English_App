@@ -16,7 +16,7 @@ interface FinishExerciseDao {
     suspend fun isIdExists(id: String): Boolean
 
     @Query("DELETE FROM $FINISH_EXERCISE_TABLE WHERE exerciseId = :id")
-    suspend fun removeById(id: String): Boolean
+    suspend fun removeById(id: String)
 
     @Query("DELETE FROM $FINISH_EXERCISE_TABLE")
     suspend fun removeAll()

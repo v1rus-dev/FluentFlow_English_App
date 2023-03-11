@@ -11,3 +11,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun finishExerciseDao(): FinishExerciseDao
 
 }
+
+//Write me query to room database on kotlin with coroutines

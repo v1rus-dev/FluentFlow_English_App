@@ -3,6 +3,9 @@ package yegor.cheprasov.feature_words.ui
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,6 +18,8 @@ import yegor.cheprasov.feature_design.components.MainToolbar
 import yegor.cheprasov.feature_design.tools.background
 import yegor.cheprasov.feature_words.state.WordsState
 import yegor.cheprasov.feature_words.R
+import yegor.cheprasov.feature_words.components.WordsThemeElement
+import yegor.cheprasov.feature_words.state.ResultWordsViewEntity
 
 @Composable
 fun WordsScreen(state: WordsState) {
@@ -45,6 +50,21 @@ fun WordsScreen(state: WordsState) {
                     }
                 )
             }
+            WordsThemeList(list = state.list)
+        }
+    }
+}
+
+@Composable
+private fun WordsThemeList(list: List<ResultWordsViewEntity>, modifier: Modifier = Modifier) {
+    Column(modifier = modifier.fillMaxSize()) {
+        LazyColumn(modifier = Modifier.fillMaxSize(), contentPadding = PaddingValues(horizontal = 16.dp)) {
+            itemsIndexed(list) { index, item ->
+                WordsThemeElement(wordsViewEntity = item)
+                if (index != list.lastIndex) {
+                    Spacer(modifier = Modifier.height(12.dp))
+                }
+            }
         }
     }
 }
@@ -56,4 +76,4 @@ private fun PreviewWordsScreen() {
 }
 
 private fun getWordsState(): WordsState =
-    WordsState(0, NewWordsAndPhrasesState(6, 8))
+    WordsState(NewWordsAndPhrasesState(6, 8))

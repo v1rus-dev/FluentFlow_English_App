@@ -8,4 +8,5 @@ class AppFirebaseStorage {
     val storage = Firebase.storage
 
     val grammarReference = storage.getReference("grammars")
+    val wordsReference = storage.getReference("words")
 }

@@ -44,11 +44,16 @@ android {
 
 dependencies {
     implementation(project(":design"))
+    implementation(project(":data"))
 
     implementation(Dependencies.coreCtx)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.material)
     implementation(Dependencies.constraintLayout)
+
+    implementation(Dependencies.coil)
+    implementation(Dependencies.coilBase)
+    implementation(Dependencies.coilAndrBase)
 
     implementation(Dependencies.hiltAndroid)
     kapt(Dependencies.hiltCompiler)

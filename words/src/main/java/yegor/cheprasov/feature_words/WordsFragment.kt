@@ -1,6 +1,8 @@
 package yegor.cheprasov.feature_words
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import yegor.cheprasov.feature_design.tools.BaseComposeFragment
@@ -15,11 +17,12 @@ class WordsFragment : BaseComposeFragment() {
     private val wordsViewModel: WordsViewModel by viewModels(ownerProducer = { requireActivity() })
 
     override val composableFunction: @Composable () -> Unit = {
+        LaunchedEffect(key1 = Unit) {
+            wordsViewModel.loadWords()
+        }
+        val state = wordsViewModel.uiState.collectAsState()
         WordsScreen(
-            state = WordsState(
-                0,
-                newWordsAndPhrasesButtonState = NewWordsAndPhrasesState(6, 8)
-            )
+            state = state.value
         )
     }
 
